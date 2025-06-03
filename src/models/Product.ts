@@ -1,4 +1,4 @@
-import mongoose, { Document, Model, models, Schema } from 'mongoose';
+import mongoose, { Document, Model, models, Schema, Types } from 'mongoose';
 
 export interface IProduct extends Document {
   name: string;
@@ -28,7 +28,7 @@ const ProductSchema = new Schema<IProduct>(
   }
 );
 
-ProductSchema.virtual('id').get(function () {
+ProductSchema.virtual('id').get(function (this: { _id: Types.ObjectId }) {
   return this._id.toHexString();
 });
 
