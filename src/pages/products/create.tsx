@@ -21,8 +21,15 @@ export default function CreateProduct() {
 
   return (
     <Layout>
-      <h1>Create New Product</h1>
-      <ProductForm onSubmit={onSubmit} />
+      <div style={{ padding: '20px', background: '#f8f9fa', borderRadius: '12px' }}>
+        <ProductForm onSubmit={onSubmit} />
+        <button
+          onClick={() => router.push('/')}
+          style={{ marginTop: '20px', padding: '10px 20px', background: '#fff0f0', color: '#ff5c5c', border: '1px solid #ff5c5c', borderRadius: '8px' }}>
+          Back to Product List
+        </button>
+      </div>
     </Layout>
   );
+
 }

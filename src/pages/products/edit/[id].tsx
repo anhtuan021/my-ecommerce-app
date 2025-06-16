@@ -26,9 +26,19 @@ export default function EditProduct() {
   if (!product) return <Layout><p>Loading...</p></Layout>;
 
   return (
-    <Layout>
-      <h1>Edit Product</h1>
+  <Layout>
+    <h1 style={{ color: '#ff5c5c', marginBottom:'20px' }}>Edit Product</h1>
+
+    <div style={{ padding:'20px', background:'#f8f9fa', borderRadius:'12px' }}>
       <ProductForm initialData={product} onSubmit={onSubmit} />
-    </Layout>
-  );
+
+      <button
+        onClick={() => router.push('/')}
+        style={{ marginTop:'20px', padding:'10px 20px', background:'#fff0f0', color:'#ff5c5c', border:'1px solid #ff5c5c', borderRadius:'8px' }}>
+        Back to Product List
+      </button>
+    </div>
+  </Layout>
+);
+
 }
