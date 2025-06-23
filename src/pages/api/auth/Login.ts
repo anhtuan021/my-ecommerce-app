@@ -25,7 +25,15 @@ const handler: NextApiHandler = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    res.status(200).json({ message: "Login success", token });
+    res.status(200).json({
+  message: "Login success",
+  token,
+  user: {
+    id: user._id?.toString(),  // 👈 chuyển _id thành id
+    email: user.email,
+  },
+});
+
   } else {
     res.status(405).json({ error: "Method not allowed" });
   }
