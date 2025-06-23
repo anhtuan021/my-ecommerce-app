@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (!cart) {
         cart = await Cart.create({ userId, items: [{ productId, quantity }] });
       } else {
-        const item = cart.items.find((item) => item.productId.toString() === productId);
+        const item = cart.items.find((item: any) => item.productId.toString() === productId);
         if (item) item.quantity += quantity;
         else cart.items.push({ productId, quantity });
         await cart.save();
